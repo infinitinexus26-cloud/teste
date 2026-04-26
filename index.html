@@ -4,27 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script>
-        // Carregar configuração do arquivo JSON
-        fetch('./config.json')
-            .then(response => {
-                if (!response.ok) throw new Error('HTTP ' + response.status);
-                return response.json();
-            })
-            .then(config => {
-                console.log('Config carregado:', config);
-                if (config.siteAtivo) {
-                    window.location.href = config.urlPrincipal;
-                } else {
-                    window.location.href = 'erro-505.html';
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao carregar config:', error);
-                // Se falhar, assume site ativo por padrão
-                window.location.href = './pagina/index.html';
-            });
-    </script>
+    
 </head>
 <body>
     <p>Redirecting...</p>
