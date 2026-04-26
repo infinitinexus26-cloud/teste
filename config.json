@@ -1,4 +1,4 @@
 {
   "siteAtivo": true,
-  "urlPrincipal": "../pagina/index.html"
+  "urlPrincipal": "./pagina/index.html"
 }
