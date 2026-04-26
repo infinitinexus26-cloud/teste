@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // Carregar configuração
+        // Carregar configuração do arquivo JSON
         fetch('config.json')
             .then(response => response.json())
             .then(config => {
                 if (config.siteAtivo) {
-                    // Site ativo - redirecionar para o principal
                     window.location.href = config.urlPrincipal;
                 } else {
-                    // Site inativo - redirecionar para a página de erro
                     window.location.href = 'erro-505.html';
                 }
             })
             .catch(error => {
-                // Em caso de erro, redirecionar para o principal
-                window.location.href = '../pagina/index.html';
+                console.error('Erro ao carregar config:', error);
+                window.location.href = 'erro-505.html';
             });
     </script>
 </head>
