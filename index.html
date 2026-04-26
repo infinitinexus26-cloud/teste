@@ -6,9 +6,13 @@
     <title>Redirecting...</title>
     <script>
         // Carregar configuração do arquivo JSON
-        fetch('config.json')
-            .then(response => response.json())
+        fetch('./config.json')
+            .then(response => {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                return response.json();
+            })
             .then(config => {
+                console.log('Config carregado:', config);
                 if (config.siteAtivo) {
                     window.location.href = config.urlPrincipal;
                 } else {
@@ -17,7 +21,8 @@
             })
             .catch(error => {
                 console.error('Erro ao carregar config:', error);
-                window.location.href = 'erro-505.html';
+                // Se falhar, assume site ativo por padrão
+                window.location.href = './pagina/index.html';
             });
     </script>
 </head>
